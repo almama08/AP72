@@ -57,7 +57,7 @@ public function anyadir($vehiculo){
     }else{
         $stmt->bindValue(':tipo','Motocicleta');
         $stmt->bindValue(':cil',$vehiculo->getCilindrada());
-        $stmt->bindValue(':casco',$vehiculo->getIncluyeCasco());
+        $stmt->bindValue(':casco',$vehiculo->getIncluyeCasco(),PDO::PARAM_BOOL);
 
         $stmt->bindValue(':puertas',null);
         $stmt->bindValue(':motor',null);
@@ -110,7 +110,7 @@ public function modificar($vehiculo){
         $stmt->bindValue(':casco', null);
     }else{
         $stmt->bindValue(':cil', $vehiculo->getCilindrada());
-        $stmt->bindValue(':casco', $vehiculo->getIncluyeCasco(), PDO::PARAM_BOOL);
+        $stmt->bindValue(':casco', $vehiculo->getIncluyeCasco(),PDO::PARAM_BOOL);
         $stmt->bindValue(':puertas', null);
         $stmt->bindValue(':motor', null);
     }
